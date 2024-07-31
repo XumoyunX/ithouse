@@ -1,0 +1,135 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+	
+	
+
+{% block content %}
+
+
+
+
+
+
+	<!--Main container start -->
+	<main class="ttr-wrapper">
+		<div class="container-fluid">
+			<div class="db-breadcrumb">
+				<h4 class="breadcrumb-title">Mailbox</h4>
+				<ul class="db-breadcrumb-list">
+					<li><a href="#"><i class="fa fa-home"></i>Asosiy</a></li>
+					<li>Mailbox</li>
+				</ul>
+			</div>	
+			<div class="row">
+				<!-- Your Profile Views Chart -->
+				<div class="col-lg-12 m-b30">
+					<div class="widget-box">
+						<div class="email-wrapper">
+							
+							<div class="mail-list-container">
+								<div class="mail-toolbar">
+									
+									 <div class="dropdown all-msg-toolbar">
+										<span class="btn btn-info-icon" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></span>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+											<li><a href="#"><i class="fa fa-arrow-down"></i> Archive</a></li>
+											<li><a href="#"><i class="fa fa-clock-o"></i> Snooze</a></li>
+											<li><a href="#"><i class="fa fa-envelope-open"></i> Mark as unread</a></li>
+										</ul>
+									</div> 
+									<div class="next-prev-btn">
+										<a href="#"><i class="fa fa-angle-left"></i></a>
+										<a href="#"><i class="fa fa-angle-right"></i></a>
+									</div>
+								</div>
+
+								<table class="table">
+									<thead>
+									  <tr>
+										<th scope="col">#</th>
+										<th scope="col">Lid tushgan</th>
+										<th scope="col">Ism</th>
+										<th scope="col">Yo'nalish</th>
+										<th scope="col">Telefon</th>
+										<th scope="col">Manager</th>
+										<th scope="col">Forma</th>
+										<th scope="col">Status</th>
+										<th scope="col">Izoh</th>
+										<th scope="col">Taxrirlash</th>
+									  </tr>
+									</thead>
+									<tbody>
+										{% for i in users %}
+										<tr>
+											<th scope="row">{{ forloop.counter }}</th>
+											<td>{{ i.date }}</td>
+											<td>{{ i.name }}</td>
+											<td>
+												<div class="alert alert-primary" role="alert">
+													{{ i.course }}
+												</div>
+												
+											</td>
+											<td>{{ i.number }}</td>
+											<td>{{ i.meneger }}</td>
+											{% if i.coming == 5 %}
+												<td>
+													<span class="badge badge-success">Online</span>
+												</td>
+											{% elif  i.coming == 6%}
+												<td>
+													<span class="badge badge-primary">Offile</span>
+												</td>
+											{% endif %}
+											{% if i.now == 1 %}
+												<td>
+													<span class="badge badge-success">Keladi</span>
+												</td>
+											{% elif  i.now == 2 %}
+												<td>
+													<span class="badge badge-danger">Otkaz</span>
+												</td>
+											{% elif  i.now == 3 %}
+												<td>
+													<span class="badge badge-info">Xato nomer</span>
+												</td>
+											{% elif  i.now == 4 %}
+												<td>
+													<span class="badge badge-warning">Qayta bog'lanish</span>
+												</td>
+												
+											{% endif %}
+
+											<td>{{ i.comment }}</td>
+											
+											<td>
+												<a href="{% url 'client:miracles_edit' i.id  %}">
+													<button type="button" class="btn btn-warning">Taxrirlash</button>
+												</a>
+											</td>
+										</tr>
+
+									  {% endfor %}
+									</tbody>
+								  </table>
+								
+								
+								
+								
+							</div>
+						</div>
+					</div> 
+				</div>
+				<!-- Your Profile Views Chart END-->
+			</div>
+		</div>
+	</main>
+	<div class="ttr-overlay"></div>
+
+
+{% endblock %}
+
+
