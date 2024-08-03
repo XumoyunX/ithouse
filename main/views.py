@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main.models import Mentor, Open_Class, New, Course, Users, Questions, Modul_Model, Projects, Video
 
 
@@ -41,10 +41,12 @@ def course(request):
 def project(request, id):
     course = Course.objects.all()
     project = Projects.objects.filter(course_id=id)
+    
     ctx = {
 
         'project': project,
         'course': course,
+        
         
         
     }
@@ -56,9 +58,11 @@ def project(request, id):
 def news(request):
     new = New.objects.all()
     new_s = New.objects.order_by("-id")[:3].all()
+    course = Course.objects.all()
     ctx = {
         "new": new,
-        "new_s": new_s
+        "new_s": new_s,
+        'course': course
     }
     return render(request, "main/blog.html", ctx)
 
@@ -66,10 +70,12 @@ def news(request):
 def new_details(request, id):
     new = New.objects.get(id=id)
     new_s = New.objects.order_by("-id")[:4].all()
+    coursee = Course.objects.all()
     
     ctx = {
         "new": new,
-        "new_s": new_s
+        "new_s": new_s,
+        "coursee": coursee
     }
     
     return render(request, 'main/blog-details.html', ctx)
@@ -79,6 +85,7 @@ def new_details(request, id):
 
 def course_details(request, id):
     course = Course.objects.get(id=id)
+    coursee = Course.objects.all()
     questions = Questions.objects.filter(course_id=id).all()
     modul_model = Modul_Model.objects.filter(course_id=id).all()
     video = Video.objects.filter(course_id=id).all()
@@ -88,7 +95,8 @@ def course_details(request, id):
         "course": course,
         'questions': questions,
         "modul_model": modul_model,
-        'video': video
+        'video': video,
+        "coursee": coursee
     
     }
     
@@ -105,6 +113,7 @@ def login_course(request):
     if form.is_valid():
         print("aaa")
         form.save()
+        return redirect("main:course")
     ctx = {
         "form": form,
 

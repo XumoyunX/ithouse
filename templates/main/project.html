@@ -13,17 +13,17 @@
 	<meta name="robots" content="" />
 	
 	<!-- DESCRIPTION -->
-	<meta name="description" content="EduChamp : Education HTML Template" />
+	{% comment %} <meta name="description" content="EduChamp : Education HTML Template" />
 	
 	<!-- OG -->
 	<meta property="og:title" content="EduChamp : Education HTML Template" />
-	<meta property="og:description" content="EduChamp : Education HTML Template" />
+	<meta property="og:description" content="EduChamp : Education HTML Template" /> {% endcomment %}
 	<meta property="og:image" content="" />
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+	<link rel="icon" href="{% static 'images/it_1_logo.svg' %}" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/it_1_logo.svg' %}" />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
 	<title>IT house academy </title>
@@ -61,8 +61,8 @@
 				<div class="row d-flex justify-content-between">
 					<div class="topbar-left">
 						<ul>
-							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>IT house haqida</a></li>
-							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>ithouse@gmail.com</a></li>
+							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>IT House academy</a></li>
+							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
 						</ul>
 					</div>
 					<div class="topbar-right">
@@ -90,23 +90,22 @@
 					<!-- Author Nav ==== -->
                     <div class="secondary-menu">
                         <div class="secondary-inner">
-                            <ul>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+							<ul>
+								<li><a href="https://www.facebook.com/ithousedu.uz" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.instagram.com/ithouse_edu" class="btn-link"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://t.me/ithouse_edu" class="btn-link"><i class="fa fa-telegram"></i></a></li>
 								<!-- Search Button ==== -->
-								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
 							</ul>
 						</div>
                     </div>
 					<!-- Search Box ==== -->
-                    <div class="nav-search-bar">
+                    {% comment %} <div class="nav-search-bar">
                         <form action="#">
                             <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
                             <span><i class="ti-search"></i></span>
                         </form>
 						<span id="search-remove"><i class="ti-close"></i></span>
-                    </div>
+                    </div> {% endcomment %}
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
@@ -127,11 +126,7 @@
 							</li>
 							
 						</ul>
-						<div class="nav-social-link">
-							<a href="javascript:;"><i class="fa fa-facebook"></i></a>
-							<a href="javascript:;"><i class="fa fa-google-plus"></i></a>
-							<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
-						</div>
+						
                     </div>
 					<!-- Navigation Menu END ==== -->
                 </div>
@@ -231,20 +226,20 @@
 
 
 
-    <footer>
+	<footer>
         <div class="footer-top" style="background-image: url('{% static 'images/ithouse.jpg' %}');">
 			<div class="pt-exebar">
 				<div class="container">
 					<div class="d-flex align-items-stretch">
 						<div class="pt-logo mr-auto">
-							<a style="width: 200px;" href="index.html"><img src="{% static 'images/Logos.png' %}" alt=""/></a>
+							<a style="width: 200px;" href="{% url 'main:index'  %}"><img src="{% static 'images/Logos.png' %}" alt=""/></a>
 						</div>
 						<div class="pt-social-link">
 							<ul class="list-inline m-a0">
-								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
-								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
-								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="https://www.facebook.com/ithousedu.uz" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="https://www.instagram.com/ithouse_edu" class="btn-link"><i class="fa fa-instagram"></i></a></li>
+								<li><a style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;" href="https://t.me/ithouse_edu" class="btn-link"><i class="fa fa-telegram"></i></a></li>
+
 							</ul>
 						</div>
 						<div class="pt-btn-join">
@@ -274,10 +269,10 @@
 									<h5 class="footer-title" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Bo'limlar</h5>
 									<ul>
 										<li><a href="{% url 'main:index' %}" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Asosiy</a></li>
-										<li><a href="about-1.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Biz haqimizda</a></li>
+										<li><a href="#" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Biz haqimizda</a></li>
 										<li><a href="{% url 'main:course' %}" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Kurslar</a></li>
 										<li><a href="{% url 'main:news' %}" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Yangiliklar</a></li>
-										</ul>
+									</ul>
 								</div>
 							</div>
 							
@@ -285,42 +280,26 @@
 								<div class="widget footer_widget">
 									<h5 class="footer-title" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Kurslar</h5>
 									<ul>
-										<li><a href="courses.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Python</a></li>
-										<li><a href="courses-details.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Front-end</a></li>
-										<li><a href="membership.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">IT kids</a></li>
-										<li><a href="profile.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Profile</a></li>
+										{% for i in course %}
+											<li><a href="{% url 'main:course_details' i.id  %}" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">{{ i.course_name }}</a></li>
+										{% endfor %}
+										
 									</ul>
 								</div>
 							</div>
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div class="widget footer_widget">
-									<h5 class="footer-title" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Contact</h5>
+									<h5 class="footer-title" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">Bog'lanish</h5>
 									<ul>
-										<li><a href="courses.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">958687202</a></li>
+										<li><a href="courses.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">905762727</a></li>
 									
-										<li><a href="membership.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">972634488</a></li>
+										<li><a href="membership.html" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">900352727</a></li>
 								
 									</ul>
 								</div>
 							</div>
 						</div>
                     </div>
-					<!-- <div class="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
-                        <div class="widget widget_gallery gallery-grid-4">
-                            <h5 class="footer-title">Our Gallery</h5>
-                            <ul class="magnific-image">
-								<ul>
-									<li class="magnific-anchor"><a href="courses.html">+998 958687202</a></li>
-									
-								</ul>
-								<<li><a href="assets/images/gallery/pic1.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic1.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic2.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic2.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic3.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic3.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic4.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic4.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic5.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic5.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic6.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic6.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic7.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic7.jpg" alt=""></a></li>
-								<li><a href="assets/images/gallery/pic8.jpg" class="magnific-anchor"><img src="assets/images/gallery/pic8.jpg" alt=""></a></li> -->
 							</ul>
                         </div>
                     </div> 
@@ -329,6 +308,7 @@
         </div>
         
     </footer>
+
 
 
 
