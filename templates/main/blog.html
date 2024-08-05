@@ -108,7 +108,7 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="{% url 'main:index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+							<a href="{% url 'main:index' %}"><img src="{% static 'images/itlogo.png' %}" alt=""></a>
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="{% url 'main:index' %}">Asosiy</a>
@@ -193,7 +193,7 @@
 									{% for i in new_s %}
 										<div class="widget-post-bx">
 											<div class="widget-post clearfix">
-												<div class="ttr-post-media"> <img src="{{ i.img.url }}" width="200" height="143" alt=""> </div>
+												<div class="ttr-post-media"> <img src="{{ i.img.url }}"  alt=""> </div>
 												<div class="ttr-post-info">
 													<div class="ttr-post-header">
 														<h6 class="post-title"><a href="blog-details.html">{{ i.name }}</a></h6>
