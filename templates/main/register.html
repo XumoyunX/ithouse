@@ -47,6 +47,10 @@
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 	<link class="skin" rel="stylesheet" type="text/css" href="{% static 'css/color/color-1.css' %}">
+
+	<style>
+		
+	</style>
 	
 </head>
 <body id="bg">
@@ -74,19 +78,21 @@
 							<div class="form-group">
 								<div class="input-group">
 									<label>Ism</label>
-									<input id="id_name" name="name" type="text" required="" class="form-control">
+									<input id="id_name" name="name" type="text" required=""  class="form-control">
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-lg-12">
 							<div class="form-group">
-								<div class="input-group"> 
-									<label>Telefon nomer</label>
-									<input id="id_number" name="number" type="number" class="form-control" required="">
+								<label >Telefon nomer</label>
+								<div class="input-group" > 
+									<input id="id_number"  placeholder="+9989" name="number" type="number" class="form-control"  required="">
 								</div>
 							</div>
 						</div>
+
+					
 						
 					</div>
 					<div class="col-lg-12 m-b30">
@@ -97,6 +103,14 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
 <!-- External JavaScripts -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'vendors/bootstrap/js/popper.min.js' %}"></script>
