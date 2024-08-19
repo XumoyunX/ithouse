@@ -64,7 +64,7 @@
 				<div class="row d-flex justify-content-between">
 					<div class="topbar-left">
 						<ul>
-							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>IT HOUSE academy </a></li>
+							<li><a href="{% url 'main:index' %}">IT HOUSE academy </a></li>
 							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
 						</ul>
 					</div>
@@ -82,7 +82,7 @@
                 <div class="container clearfix">
 					<!-- Header Logo ==== -->
 					<div class="menu-logo">
-						<a href="index.html"><img src="{% static 'images/Logos.png' %}" alt=""></a>
+						<a href="{% url 'main:index' %}"><img src="{% static 'images/Logos.png' %}" alt=""></a>
 					</div>
 					<!-- Mobile Nav Button ==== -->
                     <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +106,7 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="{% url 'main:index' %}"><img src="{% static 'images/it	' %}" alt=""></a>
+							<a href="{% url 'main:index' %}"><img src="{% static 'images/itlogo.png' %}" alt=""></a>
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="{% url 'main:index' %}">Asosiy</a>
@@ -170,16 +170,16 @@
 						data-param9="" data-param10="" 
 						data-description="Science says that Women are generally happier">
 							<!-- MAIN IMAGE -->
-							 <video  autoplay muted loop width="100%" controls>
+							 {% comment %} <video  autoplay muted loop width="100%" controls>
 								<source src="{% static 'images/video.mp4' %}" type="video/mp4">
-							</video> 
-							{% comment %} <img src="{% static 'images/itit.gif' %}" alt="" 
+							</video>  {% endcomment %}
+							<img src="{% static '/images/about/pic1.jpg' %}" alt="" 
 								data-bgposition="center center" 
 								data-bgfit="cover" 
 								data-bgrepeat="no-repeat" 
 								data-bgparallax="10" 
 								class="rev-slidebg" 
-								data-no-retina />  {% endcomment %}
+								data-no-retina /> 
 								
 							<!-- LAYER NR. 1 -->
 							<div class="tp-caption tp-shape tp-shapewrapper " 
