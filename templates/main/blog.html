@@ -60,7 +60,7 @@
 				<div class="row d-flex justify-content-between">
 					<div class="topbar-left">
 						<ul>
-							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>IT House academy</a></li>
+							<li><a href="{% url 'main:index' %}">IT House academy</a></li>
 							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
 						</ul>
 					</div>
@@ -163,7 +163,7 @@
 							{% for i in new %}
 								<div class="blog-post blog-md clearfix">
 									<div class="ttr-post-media"> 
-										<a href="#"><img src="{{ i.img.url }}" alt=""></a> 
+										<a href="#"><img src="{{ i.file.url }}" alt=""></a> 
 									</div>
 									<div class="ttr-post-info">
 										<ul class="media-post">

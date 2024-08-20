@@ -1,6 +1,5 @@
 .btn,
 .panel,
-.form-control,
 .img-thumbnail,
 .panel-head ing,
 .dropdown-menu,
@@ -33,7 +32,6 @@ ol.comment-list li.comment .comment-body {
 a,
 .ttr-box,
 .btn,
-.form-control,
 .ov-box,
 .overlay-icon li a i,
 .feature-box-xl,
@@ -91,22 +89,22 @@ label {
 .form-group {
     margin-bottom: 25px;
 }
-.form-control {
-    border-color: #e1e6eb;
-    box-shadow: none;
-    height: 40px;
-    font-size: 13px;
-    line-height: 20px;
-    padding: 9px 12px;
-}
-textarea.form-control {
-	height:120px;
-}
-.form-control:focus {
-    border-color: #e1e1e1;
-    outline: 0;
-}
-.form-control:focus,
+/*.form-control {*/
+/*    border-color: #e1e6eb;*/
+/*    box-shadow: none;*/
+/*    height: 40px;*/
+/*    font-size: 13px;*/
+/*    line-height: 20px;*/
+/*    padding: 9px 12px;*/
+/*}*/
+/*textarea.form-control {*/
+/*	height:120px;*/
+/*}*/
+/*.form-control:focus {*/
+/*    border-color: #e1e1e1;*/
+/*    outline: 0;*/
+/*}*/
+
 .has-error .form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -167,7 +165,8 @@ textarea.form-control {
     background-color: #fff !important;
     border: 1px solid #e9e9e9 !important;
     box-shadow: none !important;
-    outline: 0px !important;
+    outline: 0 !important;
+    color: #999;
 }
 .bootstrap-select:active,
 .bootstrap-select:focus {
@@ -185,7 +184,7 @@ textarea.form-control {
 }
 .bootstrap-select.show.btn-group .dropdown-menu.inner{
 	display:block;
-}	
+}
 .bootstrap-select div.dropdown-menu {
     border: 1px solid #e9e9e9;
     border-radius: 0;
@@ -205,7 +204,7 @@ textarea.form-control {
     -webkit-border-radius: 100%;
     margin-right: 5px;
 }
-.bootstrap-select .bs-searchbox .form-control {
+.bootstrap-select .bs-searchbox  {
     padding: 5px 10px;
     height: 30px;
 }
