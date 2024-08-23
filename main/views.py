@@ -140,21 +140,5 @@ def course_details(request, id):
 
 def login_course(request):
     course = Course.objects.all()
-    # if request.method == 'POST':
-    #     form = YourForm(request.POST)
-    #     if form.is_valid():
-    #         data = [
-    #             [form.cleaned_data['course'].course_name, form.cleaned_data['name'], form.cleaned_data['number']]
-    #
-    #         ]
-    #         print(data)
-    #         print(form.cleaned_data['course'], "14 qator")
-    #
-    #         SPREADSHEET_ID = '1TgT3iHhry8PTV2s0VwvEAsNHbNIBbNW5hXhehBudsOs'
-    #         RANGE_NAME = 'A1'
-    #         append_to_sheet(SPREADSHEET_ID, RANGE_NAME, data)
-    #
-    #         return redirect("main:course")
-    # else:
-    #     form = YourForm()
+
     return render(request, 'main/register.html', {'course': course})
