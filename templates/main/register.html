@@ -48,9 +48,45 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link class="skin" rel="stylesheet" type="text/css" href="{% static 'css/color/color-1.css' %}">
 
-    <style>
-
-    </style>
+    {#    <style>#}
+    {#        body {#}
+    {#            font-family: Arial, sans-serif;#}
+    {#            display: flex;#}
+    {#            justify-content: center;#}
+    {#            align-items: center;#}
+    {#            height: 100vh;#}
+    {#            margin: 0;#}
+    {#            background-color: #f2f2f2;#}
+    {#        }#}
+    {##}
+    {#        .form-container {#}
+    {#            background-color: white;#}
+    {#            padding: 30px;#}
+    {#            border-radius: 5px;#}
+    {#            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#}
+    {#            max-width: 400px;#}
+    {#            width: 100%;#}
+    {#        }#}
+    {##}
+    {#        input, button {#}
+    {#            width: 100%;#}
+    {#            padding: 10px;#}
+    {#            margin-bottom: 20px;#}
+    {#            border: 1px solid #ccc;#}
+    {#            border-radius: 3px;#}
+    {#            font-size: 16px;#}
+    {#        }#}
+    {##}
+    {#        button {#}
+    {#            background-color: #4CAF50;#}
+    {#            color: white;#}
+    {#            cursor: pointer;#}
+    {#        }#}
+    {##}
+    {#        button:hover {#}
+    {#            background-color: #45a049;#}
+    {#        }#}
+    {#    </style>#}
 
 </head>
 <body id="bg">
@@ -66,17 +102,20 @@
                     <h2 class="title-head">Kurslarimizga ro'yxatdan o'tish</h2>
                     <p>Kurslarimizga ro'yxatdan o'tib, kelajagingiz uchun muhim qadamni tashlang!</p>
                 </div>
-                <form method="post" enctype="multipart/form-data" class="contact-bx">
+                <form id="data-form" method="post" enctype="multipart/form-data" class="contact-bx">
                     {% csrf_token %}
-                    {% comment %} {{ form }} {% endcomment %}
-                    
+
                     <div class="row placeani">
                         <label>Kurslar</label>
-                        {{ form.course }}
+                        <select class="form-control" id="course" name="course" required>
+                            {% for i in course %}
+                                <option type="text">{{ i.course_name }}</option>
+                            {% endfor %}
+                        </select>
                         <div class="col-lg-12 p-0  mt-4">
                             <div class="form-group">
                                 <label for="id_name">Ism</label>
-                                <input placeholder="Ism" id="id_name" name="name" type="text" required=""
+                                <input placeholder="Ism"  type="text" id="name"  required
                                        class="form-control form-control-lg">
                             </div>
                         </div>
@@ -84,22 +123,71 @@
                         <div class="col-lg-12 p-0">
                             <div class="form-group">
                                 <label>Telefon nomer</label>
-                                <input value="998" id="id_number" placeholder="+9989" name="number" type="number"
-                                       class="form-control form-control-lg" required="">
+                                <input value="998" type="number" id="number" placeholder="+9989"
+                                       class="form-control form-control-lg" required>
                             </div>
                         </div>
                         <div class="col-lg-12 m-b30 p-0">
-                            <button name="submit" type="submit" value="Submit" class="btn button-md">Yuborish</button>
+                            <button type="submit" class="btn button-md">Submit</button>
                         </div>
-
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+
+<div class="form-container">
+    <h2>Send Data to Google Sheets</h2>
+    <form id="data-form" method="post" enctype="multipart/form-data" class="contact-bx">
+        <div class="form-group">
+            <label for="dropdown_field">Dropdown Field</label>
+            <select class="form-control" id="course" name="course" required>
+                {% for i in course %}
+                    <option type="text">{{ i.course_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="text" id="name" placeholder="name" required>
+        <input type="number" id="number" placeholder="number" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<script>
+    const form = document.getElementById('data-form');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const Kurs = document.getElementById('course').value;
+        const Ism = document.getElementById('name').value;
+        const Telefon_nomer = document.getElementById('number').value;
+
+        try {
+            const response = await fetch('https://sheetdb.io/api/v1/fuqxo7z7ox1wq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({data: [{Kurs, Ism, Telefon_nomer}]})
+            });
+
+            if (response.ok) {
+                window.location.href = "{% url 'main:course' %}"
+                {#alert("Ma'lumot saqlandi!");#}
+                form.reset();
+            } else {
+                alert("Maʼlumotlarni yuborishda xatolik yuz berdi. Iltimos, qayta urinib koʻring.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert("Xatolik yuz berdi. Keyinroq qayta urinib ko‘ring.");
+        }
+    });
+</script>
 
 <!-- External JavaScripts -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
