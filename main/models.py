@@ -27,7 +27,7 @@ class Open_Class(models.Model):
     
     
 class New(models.Model):
-    file = models.FileField(upload_to='media_files/')
+    img = models.ImageField(upload_to='images/')
     name = models.TextField()
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
