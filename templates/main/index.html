@@ -65,7 +65,7 @@
                     <div class="topbar-left">
                         <ul>
                             <li><a href="{% url 'main:index' %}">IT HOUSE academy </a></li>
-                            <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
+                            <li><a href="maleto:ithouseedu@gmail.com"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
                         </ul>
                     </div>
                     <div class="topbar-right">
@@ -412,8 +412,8 @@
                                     <div class="feature-box-sm radius bg-white">
                                         <i class="fa fa-file-text-o text-primary"></i>
                                     </div>
-                                    <h4><a href="https://t.me/ITHOUSEEDU_ADMIN">Kurslar Haqida</a></h4>
-                                    <a href="https://t.me/ITHOUSEEDU_ADMIN" class="btn radius-xl">Kengisi</a>
+                                    <h4><a href="{% url 'main:course' %}">Kurslar Haqida</a></h4>
+                                    <a href="{% url 'main:course' %}" class="btn radius-xl">Kengisi</a>
                                 </div>
                             </div>
                         </div>
@@ -527,17 +527,17 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="cours-search-bx m-b30">
                                     <div class="icon-box">
-                                        <h3><i class="ti-user"></i><span class="counter">150</span></h3>
+                                        <h3><i class="ti-user"></i><span class="counter">486</span></h3>
                                     </div>
-                                    <span class="cours-search-text"> 150 student</span>
+                                    <span class="cours-search-text"> 486 student</span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="cours-search-bx m-b30">
                                     <div class="icon-box">
-                                        <h3><i class="ti-book"></i><span class="counter">6</span></h3>
+                                        <h3><i class="ti-book"></i><span class="counter">7</span></h3>
                                     </div>
-                                    <span class="cours-search-text">6 Kurslar.</span>
+                                    <span class="cours-search-text">7 Kurslar.</span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
@@ -547,7 +547,7 @@
                                             <h3><i class="ti-layout-list-post"></i></h3>
                                         </div>
                                     </a>
-                                    <span class="cours-search-text">Online haqida ma'lumot</span>
+                                    <span class="https://www.ithouseonline.uz/uz/courses">Online haqida ma'lumot</span>
                                 </div>
                             </div>
                         </div>
@@ -665,18 +665,10 @@
                         {% for i in new %}
                             <div class="item">
                                 <div class="recent-news">
-                                    {% if image_url %}
+                                   
                                         <div class="action-box">
                                             <img src="{{ i.file.url }}" alt="">
                                         </div>
-                                    {% endif %}
-                                    {% if video_url %}
-                                        <div class="action-box">
-                                            <video width="100%" height="100%" controls>
-                                                <source src="{{ video_url.url }}" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    {% endif %}
                                     <div class="info-bx">
                                         <ul class="media-post">
                                             <li><a href="#"><i class="fa fa-calendar"></i>{{ i.date }}</a></li>
@@ -805,15 +797,14 @@
                                         style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">
                                         Bog'lanish</h5>
                                     <ul>
-                                        <li><a href="courses.html"
-                                               style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">+998905762727</a>
+										<li>
+                                            <a href="tel:+998905762727" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">+998905762727</a></li>
+
+										<li >
+                                            <a href="tel:+998900352727" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff; margin-top: 12px">+998900352727</a> 
                                         </li>
 
-                                        <li><a href="membership.html"
-                                               style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">+998900352727</a>
-                                        </li>
-
-                                    </ul>
+									</ul>
                                 </div>
                             </div>
                         </div>

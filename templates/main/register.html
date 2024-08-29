@@ -20,6 +20,8 @@
     <meta property="og:image" content=""/>
     <meta name="format-detection" content="telephone=no">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <!-- FAVICONS ICON ============================================= -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png"/>
@@ -48,45 +50,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link class="skin" rel="stylesheet" type="text/css" href="{% static 'css/color/color-1.css' %}">
 
-    {#    <style>#}
-    {#        body {#}
-    {#            font-family: Arial, sans-serif;#}
-    {#            display: flex;#}
-    {#            justify-content: center;#}
-    {#            align-items: center;#}
-    {#            height: 100vh;#}
-    {#            margin: 0;#}
-    {#            background-color: #f2f2f2;#}
-    {#        }#}
-    {##}
-    {#        .form-container {#}
-    {#            background-color: white;#}
-    {#            padding: 30px;#}
-    {#            border-radius: 5px;#}
-    {#            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#}
-    {#            max-width: 400px;#}
-    {#            width: 100%;#}
-    {#        }#}
-    {##}
-    {#        input, button {#}
-    {#            width: 100%;#}
-    {#            padding: 10px;#}
-    {#            margin-bottom: 20px;#}
-    {#            border: 1px solid #ccc;#}
-    {#            border-radius: 3px;#}
-    {#            font-size: 16px;#}
-    {#        }#}
-    {##}
-    {#        button {#}
-    {#            background-color: #4CAF50;#}
-    {#            color: white;#}
-    {#            cursor: pointer;#}
-    {#        }#}
-    {##}
-    {#        button:hover {#}
-    {#            background-color: #45a049;#}
-    {#        }#}
-    {#    </style>#}
+     <style>
+        #number {
+            font-size: 20px;
+            {#width: 433px;#}
+        }
+        
+        .iti--allow-dropdown {
+            width: 100%;
+        }
+    </style>
 
 </head>
 <body id="bg">
@@ -114,7 +87,7 @@
                         </select>
                         <div class="col-lg-12 p-0  mt-4">
                             <div class="form-group">
-                                <label for="id_name">Ism</label>
+                                <label for="name">Ism</label>
                                 <input placeholder="Ism"  type="text" id="name"  required
                                        class="form-control form-control-lg">
                             </div>
@@ -122,13 +95,15 @@
 
                         <div class="col-lg-12 p-0">
                             <div class="form-group">
-                                <label>Telefon nomer</label>
-                                <input value="998" type="number" id="number" placeholder="+9989"
-                                       class="form-control form-control-lg" required>
+                                <label for="number">Telefon nomer</label>
+{#                                <br>#}
+                                <input id="number" type="number" style="width: 100%" class="form-control form-control-lg w-100" required >
+{#                                <input value="998" type="number" id="number" placeholder="+9989"#}
+{#                                       class="form-control form-control-lg" >#}
                             </div>
                         </div>
                         <div class="col-lg-12 m-b30 p-0">
-                            <button type="submit" class="btn button-md">Submit</button>
+                            <button type="submit" class="btn button-md">Yuborish</button>
                         </div>
                     </div>
                 </form>
@@ -138,22 +113,6 @@
 </div>
 
 
-<div class="form-container">
-    <h2>Send Data to Google Sheets</h2>
-    <form id="data-form" method="post" enctype="multipart/form-data" class="contact-bx">
-        <div class="form-group">
-            <label for="dropdown_field">Dropdown Field</label>
-            <select class="form-control" id="course" name="course" required>
-                {% for i in course %}
-                    <option type="text">{{ i.course_name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <input type="text" id="name" placeholder="name" required>
-        <input type="number" id="number" placeholder="number" required>
-        <button type="submit">Submit</button>
-    </form>
-</div>
 
 
 <script>
@@ -186,6 +145,25 @@
             console.error('Error:', error);
             alert("Xatolik yuz berdi. Keyinroq qayta urinib ko‘ring.");
         }
+    });
+
+
+
+
+    const input = document.querySelector("#number");
+    window.intlTelInput(input, {
+            initialCountry: "auto",
+            geoIpLookup: function (success, failure) {
+                fetch("https://ipinfo.io?initialCountry=uz", {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => success(data.country))
+                    .catch(() => success("us"));
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>
 

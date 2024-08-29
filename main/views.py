@@ -12,17 +12,6 @@ def index(request):
     course = Course.objects.all()
     media_obj = New.objects.order_by("-id")[:3]
 
-    if media_obj:
-        first_media_obj = media_obj.first()
-        if first_media_obj.file.name.endswith('.mp4') or first_media_obj.file.name.endswith('.avi'):
-            video_url = first_media_obj.file.url
-            image_url = None
-        else:
-            image_url = first_media_obj.file.url
-            video_url = None
-    else:
-        video_url = None
-        image_url = None
 
 
     ctx = {
@@ -30,8 +19,7 @@ def index(request):
         "open_class": open_class,
         "new": media_obj,
         'course': course,
-        'video_url': video_url,
-        'image_url': image_url
+
     }
     return render(request, "main/index.html", ctx)
 
