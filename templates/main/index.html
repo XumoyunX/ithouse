@@ -474,15 +474,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                        <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0" >
                             {% for i in mentor %}
-                                <div class="item">
+                                <div class="item" >
 
-                                    <div class="cours-bx">
-                                        <div class="action-box">
+                                        <div class="action-box" style="border-radius: 50%;">
                                             <img style="height: 100%;" src="{{ i.img.url }}" alt="">
 
                                         </div>
+
+                                    <div class="cours-bx">
                                         <div class="info-bx text-center">
                                             <h5><a href="#">{{ i.last_name }}</a></h5>
                                             <span><b>{{ i.direction }}</b></span>
@@ -667,7 +668,7 @@
                                 <div class="recent-news">
                                    
                                         <div class="action-box">
-                                            <img src="{{ i.file.url }}" alt="">
+                                            <img src="{{ i.img.url }}" alt="">
                                         </div>
                                     <div class="info-bx">
                                         <ul class="media-post">
