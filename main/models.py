@@ -6,6 +6,7 @@ class Mentor(models.Model):
     img = models.ImageField(upload_to="images/")
     last_name = models.CharField(max_length=50)
     direction = models.CharField(max_length=50)
+    text = models.TextField()
     
     def __str__(self):
         return self.last_name
@@ -41,7 +42,7 @@ class Course(models.Model):
     mentor = models.ForeignKey(Mentor, null=True, on_delete=models.CASCADE)
     img = models.ImageField(upload_to="images/")  
     course_name = models.CharField(max_length=250)
-    text = models.CharField(max_length=250)
+    text = models.TextField()
     course_table = models.CharField(max_length=250)
     lesson_number = models.CharField(max_length=50)
     month = models.CharField(max_length=20)
@@ -136,4 +137,24 @@ class Video(models.Model):
     
     
     def __str__(self):
-        return self.name    
+        return self.name
+
+
+
+
+
+
+class About(models.Model):
+    video = models.FileField(upload_to='videos_uploaded/')
+    name = models.CharField(max_length=50)
+    text = models.TextField(blank=True, null=True)
+
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Mentor, Open_Class, New, Course, Users, Questions, Modul_Model, Projects, Video
+from main.models import Mentor, Open_Class, New, Course, Users, Questions, Modul_Model, Projects, Video, About
 
 
 admin.site.register(Mentor)
@@ -11,3 +11,4 @@ admin.site.register(Questions)
 admin.site.register(Modul_Model)
 admin.site.register(Projects)
 admin.site.register(Video)
+admin.site.register(About)

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from main.models import Mentor, Open_Class, New, Course, Users, Questions, Modul_Model, Projects, Video
+from main.models import Mentor, Open_Class, New, Course, Users, Questions, Modul_Model, Projects, Video, About
 # from .google_sheets import append_to_sheet
 # from main.forms import YourForm
 
@@ -11,6 +11,7 @@ def index(request):
     open_class = Open_Class.objects.all()
     course = Course.objects.all()
     media_obj = New.objects.order_by("-id")[:3]
+    about = About.objects.all()
 
 
 
@@ -19,6 +20,7 @@ def index(request):
         "open_class": open_class,
         "new": media_obj,
         'course': course,
+        'about': about
 
     }
     return render(request, "main/index.html", ctx)
@@ -93,18 +95,17 @@ def course_details(request, id):
     modul_model = Modul_Model.objects.filter(course_id=id).all()
     video = Video.objects.filter(course_id=id).all()
 
-    
+
     ctx = {
         "course": course,
         'questions': questions,
         "modul_model": modul_model,
         'video': video,
         "coursee": coursee
-    
-    }
-    
-    return render(request, 'main/courses-details.html', ctx)
 
+    }
+
+    return render(request, 'main/courses-details.html', ctx)
 
 
 
@@ -130,3 +131,6 @@ def login_course(request):
     course = Course.objects.all()
 
     return render(request, 'main/register.html', {'course': course})
+
+
+

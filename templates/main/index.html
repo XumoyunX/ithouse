@@ -65,7 +65,8 @@
                     <div class="topbar-left">
                         <ul>
                             <li><a href="{% url 'main:index' %}">IT HOUSE academy </a></li>
-                            <li><a href="mailto:ithouseedu@gmail.com"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a></li>
+                            <li><a href="mailto:ithouseedu@gmail.com"><i class="fa fa-envelope-o"></i>ithouseedu@gmail.com</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="topbar-right">
@@ -123,9 +124,10 @@
                             <li class="add-mega-menu"><a href="{% url 'main:course' %}">Kurslar</a>
 
                             </li>
-                            <li><a href="{% url 'main:news' %}">Yangiliklar</a>
-
+                            <li>
+                                <a href="{% url 'main:news' %}">Yangiliklar</a>
                             </li>
+
                             {% comment %} <li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li><a href="">Dashboard</a></li>
@@ -441,7 +443,9 @@
                                             <a href="{% url 'main:login_course' %}" class="btn">Ro'yxatdan o'tish</a>
                                         </div>
                                         <div class="info-bx text-center">
-                                            <h5><a href="{% url 'main:course_details' i.id %}">{{ i.course_name }}</a>
+                                            <h5>
+                                                <a href="{% url 'main:course_details' i.id %}"
+                                                   target="_blank">{{ i.course_name }}</a>
                                             </h5>
                                             <span>{{ i.course_table }} ta modul</span>
                                         </div>
@@ -470,22 +474,22 @@
                     <div class="row">
                         <div class="col-md-12 heading-bx left">
                             <h2 class="title-head">Bizning <span style="color: #e31e25;">Ustozlar</span></h2>
-                            <p>Kuchli bilimlarga ega ustozlar</p>
+                            <p>O'z sohasining yetuk mutaxassislari</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0" >
+                        <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0">
                             {% for i in mentor %}
-                                <div class="item" >
+                                <div class="item">
 
-                                        <div class="action-box" style="border-radius: 50%;">
-                                            <img style="height: 100%;" src="{{ i.img.url }}" alt="">
+                                    <div class="action-box" style="border-radius: 50%;">
+                                        <img style="height: 100%;" src="{{ i.img.url }}" alt="">
 
-                                        </div>
+                                    </div>
 
                                     <div class="cours-bx">
                                         <div class="info-bx text-center">
-                                            <h5><a href="#">{{ i.last_name }}</a></h5>
+                                            <h5><a>{{ i.last_name }}</a></h5>
                                             <span><b>{{ i.direction }}</b></span>
                                         </div>
                                         <div class="cours-more-info">
@@ -530,7 +534,7 @@
                                     <div class="icon-box">
                                         <h3><i class="ti-user"></i><span class="counter">486</span></h3>
                                     </div>
-                                    <span class="cours-search-text"> 486 student</span>
+                                    <span class="cours-search-text"> 486 Talaba</span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -538,7 +542,7 @@
                                     <div class="icon-box">
                                         <h3><i class="ti-book"></i><span class="counter">7</span></h3>
                                     </div>
-                                    <span class="cours-search-text">7 Kurslar.</span>
+                                    <span class="cours-search-text">7 Kurslar</span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
@@ -561,7 +565,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center heading-bx">
                             <h2 class="title-head m-b0">Ochiq <span>Darslar</span></h2>
-                            <p class="m-b0">Tezroq o‘z joyingni band qiling </p>
+                            <p class="m-b0">Tezroq o'z joyingizni band qiling</p>
                         </div>
                     </div>
                     <div class="row">
@@ -579,19 +583,32 @@
                                                 </div>
                                             </div>
                                             <div class="event-info">
-                                                <h4 class="event-title"><a href="#">{{ i.name }}</a></h4>
+                                                <h4 class="event-title"><a
+                                                        href="{% url 'main:login_course' %}">{{ i.name }}</a></h4>
                                                 <ul class="media-post">
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> {{ i.day_time }}</a>
+                                                    <li><i class="fa fa-clock-o"></i> {{ i.day_time }}
                                                     </li>
-                                                    <li><a href="#"><i class="fa fa-map-marker"></i> {{ i.location }}
-                                                    </a></li>
+                                                    <li><i class="fa fa-map-marker"></i> {{ i.location }}
+                                                    </li>
                                                 </ul>
                                                 <p>{{ i.text }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                            {% empty %}
+                                <div class="item">
+                                    <div class="event-bx">
+                                        <div class="action-box">
+                                            <img style="height: 100%; " src="{% static 'images/error_1.jpg' %}" alt="">
+                                        </div>
+
+                                    </div>
+                                </div>
                             {% endfor %}
+
+
                         </div>
                     </div>
                     <div class="text-center">
@@ -637,7 +654,7 @@
                                 </div>
                                 <div class="testimonial-info">
                                     <h5 class="name">Ismoilov Nurmuhammad</h5>
-                                    <p>-Patniyor</p>
+                                    <p>-Partnyor</p>
                                 </div>
                                 <div class="testimonial-content">
                                     <p>1997-yil Andijonda tug'ilgan Yaponiyadagi universitetda tahsil olgan. Hozirda
@@ -666,14 +683,16 @@
                         {% for i in new %}
                             <div class="item">
                                 <div class="recent-news">
-                                   
-                                        <div class="action-box">
-                                            <img src="{{ i.img.url }}" alt="">
-                                        </div>
+
+                                    <div class="action-box">
+                                        <img src="{{ i.img.url }}" alt="">
+                                    </div>
                                     <div class="info-bx">
                                         <ul class="media-post">
-                                            <li><a href="#"><i class="fa fa-calendar"></i>{{ i.date }}</a></li>
-                                            <li><a href="#"><i class="fa fa-user"></i>{{ i.username }}</a></li>
+                                            <li><a href="{% url 'main:new_details' i.id %}"><i
+                                                    class="fa fa-calendar"></i>{{ i.date }}</a></li>
+                                            <li><a href="{% url 'main:new_details' i.id %}"><i
+                                                    class="fa fa-user"></i>{{ i.username }}</a></li>
                                         </ul>
                                         <h5 class="post-title"><a
                                                 href="{% url 'main:new_details' i.id %}">{{ i.name|truncatewords:"8" }}</a>
@@ -686,10 +705,62 @@
                                     </div>
                                 </div>
                             </div>
+                        {% empty %}
+                            <div class="item">
+                                <div class="recent-news">
+
+                                    <div class="action-box">
+                                        <img src="{% static 'images/error_1.jpg' %}" alt="">
+                                    </div>
+
+                                </div>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
             </div>
+
+
+            <div class="section-area section-sp2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 heading-bx left">
+                            <h2 class="title-head">IT HOUSE <span style="color: #e31e25;">Academy Trening</span></h2>
+                            <p>Raqamli texnologiyalar yo'nalishida O'rta Osiyodagi eng ilg'or ta'lim maskaniga
+                                aylanish.</p>
+                        </div>
+                    </div>
+                    <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                        {% for i in about %}
+                            <div class="item">
+                                <div class="recent-news">
+
+                                    <div class="action-box">
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ i.video.url }}" type="video/mp4">
+
+                                        </video>
+                                        {#                                            <img src="{{ i.img.url }}" alt="">#}
+                                    </div>
+                                    <div class="info-bx">
+
+                                        <h5 class="post-title"><a
+                                                href="">{{ i.name }}</a>
+                                        </h5>
+                                        <p>{{ i.text }}</p>
+                                        <div class="post-extra">
+                                            <!-- <a href="#" class="btn-link">READ MORE</a>
+                                            <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
             <!-- Recent News End -->
 
         </div>
@@ -698,7 +769,7 @@
     <!-- Content END-->
     <!-- Footer ==== -->
     <footer>
-        <div class="footer-top" style="background-image: url('{% static 'images/ithouse.jpg' %}');">
+        <div class="footer-top" style="background-image: url('{% static 'images/i.png' %}');">
             <div class="pt-exebar">
                 <div class="container">
                     <div class="d-flex align-items-stretch">
@@ -740,9 +811,10 @@
                                 Bizning oliy maqsad</h5>
                             <p class="text-capitalize m-b20"
                                style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">
-                                Raqamli texnologiyalar yordamida dunyoni yaxshi tarafga o'zgartira oladigan
-                                mutaxassislarni tayyorlaymiz, shu sohadagi mahsulot va xizmatlarni ishlab
-                                chiqaramiz.</p>
+                                “IT HOUSE” jamoasi o‘z oldiga O‘zbekistonda ta’lim sifatini yaxshilash, raqamli
+                                texnologiyalar asrida yoshlarga eng zamonaviy yo‘nalishlar bo‘yicha bilim berish va shu
+                                orqali yetuk mutaxassislarni tarbiyalash vazifasini qo‘ygan. Bu bizning oliy
+                                maqsadimizdir!</p>
                             <div class="subscribe-form m-b20">
                                 <form class="subscription-form"
                                       action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php"
@@ -798,14 +870,17 @@
                                         style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">
                                         Bog'lanish</h5>
                                     <ul>
-										<li>
-                                            <a href="tel:+998905762727" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">+998905762727</a></li>
-
-										<li >
-                                            <a href="tel:+998900352727" style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff; margin-top: 12px">+998900352727</a> 
+                                        <li>
+                                            <a href="tel:+998905762727"
+                                               style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff;">+998905762727</a>
                                         </li>
 
-									</ul>
+                                        <li>
+                                            <a href="tel:+998900352727"
+                                               style="text-shadow: 1px 1px 2px red, 0 0 1em rgb(207, 207, 210), 0 0 0.2em rgb(239, 239, 249); color: #fff; margin-top: 12px">+998900352727</a>
+                                        </li>
+
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -814,12 +889,10 @@
                 </div>
             </div>
         </div>
-</div>
-</div>
 
-</footer>
-<!-- Footer END ==== -->
-<button class="back-to-top fa fa-chevron-up"></button>
+    </footer>
+    <!-- Footer END ==== -->
+    <button class="back-to-top fa fa-chevron-up"></button>
 </div>
 
 <!-- External JavaScripts -->
