@@ -167,9 +167,17 @@
                         <div class="col-lg-8 col-xl-8">
                             <!-- blog start -->
                             <div class="recent-news blog-lg">
-                                <div class="action-box blog-lg">
-                                    <img src="{{ new.img.url }}" alt="">
-                                </div>
+                                {% if new.is_image %}
+                                    <div class="action-box blog-lg">
+                                        <img src="{{ new.file.url }}" alt="">
+                                    </div>
+                                {% elif new.is_video %}
+                                    <div class="action-box blog-lg">
+                                        <video controls width="320" height="240">
+                                            <source src="{{ new.file.url }}" type="video/{{ new.ext }}">
+                                        </video>
+                                    </div>
+                                {% endif %}
                                 <div class="info-bx">
                                     <ul class="media-post">
                                         <li><a href="#"><i class="fa fa-calendar"></i>{{ new.date }}</a></li>
@@ -203,9 +211,17 @@
                                     <h6 class="widget-title">Yangilik</h6>
                                     <div class="widget-post-bx">
                                         {% for i in new_s %}
+
                                             <div class="widget-post clearfix">
-                                                <div class="ttr-post-media"><img src="{{ i.img.url }}" width="200"
-                                                                                 height="143" alt=""></div>
+                                                {% if i.is_image %}
+                                                    <div class="ttr-post-media"><img src="{{ i.file.url }}" width="200"
+                                                                                     height="143" alt=""></div>
+                                                {% elif i.is_video %}
+                                                    <video controls style="width: 300px">
+                                                        <source src="{{ i.file.url }}" type="video/{{ i.ext }}">
+                                                        Sizning brauzeringiz video o'ynashni qo'llab-quvvatlamaydi.
+                                                    </video>
+                                                {% endif %}
                                                 <div class="ttr-post-info">
                                                     <div class="ttr-post-header">
                                                         <h6 class="post-title"><a
@@ -240,7 +256,7 @@
                 <div class="container">
                     <div class="d-flex align-items-stretch">
                         <div class="pt-logo mr-auto">
-                            <a style="width: 200px;" ></a>
+                            <a style="width: 200px;"></a>
                         </div>
                         <div class="pt-social-link mt-5">
                             <ul class="list-inline m-a0">

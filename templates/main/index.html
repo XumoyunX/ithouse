@@ -180,16 +180,16 @@
                             data-param9="" data-param10=""
                             data-description="Science says that Women are generally happier">
                             <!-- MAIN IMAGE -->
-                            {% comment %} <video  autoplay muted loop width="100%" controls>
-								<source src="{% static 'images/video.mp4' %}" type="video/mp4">
-							</video>  {% endcomment %}
-                            <img src="{% static '/images/about/pic1.jpg' %}" alt=""
-                                 data-bgposition="center center"
-                                 data-bgfit="cover"
-                                 data-bgrepeat="no-repeat"
-                                 data-bgparallax="10"
-                                 class="rev-slidebg"
-                                 data-no-retina/>
+{#                            <video autoplay muted loop width="100%" controls>#}
+{#                                <source src="{% static 'images/video.mp4' %}" type="video/mp4">#}
+{#                            </video>#}
+                                                        <img src="{% static '/images/about/pic1.jpg' %}" alt=""
+                            data-bgposition="center center"
+                            data-bgfit="cover"
+                            data-bgrepeat="no-repeat"
+                            data-bgparallax="10"
+                            class="rev-slidebg"
+                            data-no-retina/>
 
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption tp-shape tp-shapewrapper "
@@ -468,7 +468,8 @@
                 </div>
             </div>
             <!-- Popular Courses END -->
-
+            {#rgb(184 17 42 / 50%);   1.#}
+            {#        background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(121,9,9,1) 100%);#}
             <div class="section-area section-sp2 popular-courses-bx">
                 <div class="container">
                     <div class="row">
@@ -487,10 +488,11 @@
 
                                     </div>
 
-                                    <div class="cours-bx">
+                                    <div class="cours-bx" style="color: white">
                                         <div class="info-bx text-center">
-                                            <h5><a>{{ i.last_name }}</a></h5>
-                                            <span><b>{{ i.direction }}</b></span>
+                                            <h5><a href="{% url 'main:teacher_course' i.id %}">{{ i.last_name }}</a>
+                                            </h5>
+                                            <span style="color: #0b0b0b"><b>{{ i.direction }}</b></span>
                                         </div>
                                         <div class="cours-more-info">
 
@@ -683,10 +685,16 @@
                         {% for i in new %}
                             <div class="item">
                                 <div class="recent-news">
-
-                                    <div class="action-box">
-                                        <img src="{{ i.img.url }}" alt="">
-                                    </div>
+                                    {% if i.is_image %}
+                                        <div class="action-box">
+                                            <img src="{{ i.file.url }}" alt="">
+                                        </div>
+                                        {% elif i.is_video %}
+                                        <video controls width="320" height="240">
+                                            <source src="{{ i.file.url }}" type="video/{{ i.ext }}">
+                                            Sizning brauzeringiz video o'ynashni qo'llab-quvvatlamaydi.
+                                        </video>
+                                    {% endif %}
                                     <div class="info-bx">
                                         <ul class="media-post">
                                             <li><a href="{% url 'main:new_details' i.id %}"><i
@@ -773,9 +781,9 @@
             <div class="pt-exebar">
                 <div class="container">
                     <div class="d-flex align-items-stretch mt-5">
-                            <div class="pt-logo mr-auto">
-                                <a style="width: 200px;" ></a>
-                            </div>
+                        <div class="pt-logo mr-auto">
+                            <a style="width: 200px;"></a>
+                        </div>
                         <div class="pt-social-link mt-5">
                             <ul class="list-inline m-a0">
                                 <li>

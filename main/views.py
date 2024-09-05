@@ -125,6 +125,13 @@ def course_details(request, id):
 #     return render(request, "main/register.html", ctx)
 
 
+def teacher_course(request, id):
+    course = Course.objects.filter(mentor_id=id).first()
+    ctx = {
+        "course": course,
+    }
+    return render(request, 'main/courses-details.html', ctx)
+
 
 
 def login_course(request):

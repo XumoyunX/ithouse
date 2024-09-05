@@ -1,5 +1,5 @@
 from django.db import models
-
+import os
 
 
 class Mentor(models.Model):
@@ -28,13 +28,29 @@ class Open_Class(models.Model):
     
     
 class New(models.Model):
-    img = models.ImageField(upload_to='images/')
+    file =  models.FileField(upload_to='uploads/%Y-%m-%d')
     name = models.TextField()
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.name
+
+    @property
+    def ext(self):
+        return (os.path.splitext(self.file.name)[1])[1:].lower()
+
+    @property
+    def is_image(self):
+        return self.ext in ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp']
+
+    @property
+    def is_video(self):
+        return self.ext in ['mp4', 'webm', 'mpeg']
+
+    @property
+    def is_audio(self):
+        return self.ext in ['mp3', 'wav']
     
     
     

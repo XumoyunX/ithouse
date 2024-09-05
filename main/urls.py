@@ -13,5 +13,6 @@ urlpatterns = [
     path("news/", news, name="news"),
     path("course_details/<int:id>/", course_details, name="course_details"),
     path("project/<int:id>/", project, name="project"),
+    path("teacher_course/<int:id>/", teacher_course, name="teacher_course"),
 ]
 
