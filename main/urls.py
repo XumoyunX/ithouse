@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from main.views import *
 
 
@@ -14,5 +14,6 @@ urlpatterns = [
     path("course_details/<int:id>/", course_details, name="course_details"),
     path("project/<int:id>/", project, name="project"),
     path("teacher_course/<int:id>/", teacher_course, name="teacher_course"),
+    path("login_course_now/<int:id>/", login_course_now, name="login_course_now"),
 ]
 

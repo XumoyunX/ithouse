@@ -77,7 +77,6 @@
                 </div>
                 <form id="data-form" method="post" enctype="multipart/form-data" class="contact-bx">
                     {% csrf_token %}
-
                     <div class="row placeani">
                         <label>Kurslar</label>
                         <select class="form-control" id="course" name="course" required>
@@ -85,6 +84,7 @@
                                 <option type="text">{{ i.course_name }}</option>
                             {% endfor %}
                         </select>
+
                         <div class="col-lg-12 p-0  mt-4">
                             <div class="form-group">
                                 <label for="name">Ism</label>
@@ -150,21 +150,13 @@
 
 
 
-    const input = document.querySelector("#number");
-    window.intlTelInput(input, {
-            initialCountry: "auto",
-            geoIpLookup: function (success, failure) {
-                fetch("https://ipinfo.io?initialCountry=uz", {
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => success(data.country))
-                    .catch(() => success("us"));
-            },
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    });
+     const input = document.querySelector("#number");
+        window.intlTelInput(input, {
+            initialCountry: "uz", // O'zbekiston kodini boshlang'ich holat qilamiz
+            separateDialCode: true, // Davlat kodini alohida ko'rsatish
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Qo'shimcha funksiya va validatsiya uchun
+        });
+
     
     
     

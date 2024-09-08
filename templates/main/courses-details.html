@@ -49,6 +49,20 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link class="skin" rel="stylesheet" type="text/css" href="{% static 'css/color/color-1.css' %}">
 
+
+    <!-- REVOLUTION SLIDER CSS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/settings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/navigation.css' %}">
+
+    <style>
+            {#@media screen and (max-width: 1200px){#}
+            {#    .item-sm {#}
+            {#        flex-direction: column;#}
+            {#    }#}
+            {##}
+            {#}#}
+    </style>
 </head>
 <body id="bg">
 <div class="page-wraper">
@@ -172,7 +186,7 @@
 									<h4 class="price">$120</h4>
 								</div>	 {% endcomment %}
                                 <div class="course-buy-now text-center">
-                                    <a href="{% url 'main:login_course' %}" class="btn radius-xl text-uppercase">Kursga
+                                    <a href="{% url 'main:login_course_now' course.id %}" class="btn radius-xl text-uppercase">Kursga
                                         yozilish</a>
                                 </div>
                                 <div class="teacher-bx">
@@ -302,42 +316,7 @@
                                     </li>
                                 </ul>
                             </div>
-
-
-                            <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
-
-                                <div class="widget widget_archive">
-                                    <h5 class="widget-title style-1" style="color: red;"><b>Videolar</b></h5>
-
-                                </div>
-
-
-                            </div>
-                            <div class="col-lg-9 col-md-8 col-sm-12">
-                                <div class="row">
-                                    {% for i in video %}
-                                        <div class="col-md-6 col-lg-4 col-sm-6 m-b30">
-                                            <div class="cours-bx">
-                                                <div class="action-box">
-                                                    <video width="100%" height="100%" controls>
-                                                        <source src="{{ i.video.url }}" type="video/mp4">
-
-                                                    </video>
-                                                    {% comment %} <img style="height: 180px;" src="" alt=""> {% endcomment %}
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -345,6 +324,48 @@
         <!-- contact area END -->
 
     </div>
+
+
+    <div class="section-area section-sp2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading-bx left">
+                    <h2 class="title-head"><span style="color: #e31e25;">Videolar</span></h2>
+                    <p>Kurs haqida video darslar.</p>
+                </div>
+            </div>
+            <div class="recent-news-carousel item-sm" style="display: flex; flex-wrap: wrap">
+                {% for i in video %}
+                    <div class="item" style="padding: 40px 20px"  >
+                        <div class="recent-news">
+
+                            <div class="action-box" >
+                                <video width="320" height="240" controls>
+                                    <source src="{{ i.video.url }}" type="video/mp4">
+
+                                </video>
+                                {#                                            <img src="{{ i.img.url }}" alt="">#}
+                            </div>
+                            <div class="info-bx">
+
+                                <h5 class="post-title"><a
+                                        href="">{{ i.name }}</a>
+                                </h5>
+                                <p>{{ i.text }}</p>
+                                <div class="post-extra">
+                                    <!-- <a href="#" class="btn-link">READ MORE</a>
+                                    <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- Content END-->
     <!-- Footer ==== -->
     <footer>
@@ -353,7 +374,7 @@
                 <div class="container">
                     <div class="d-flex align-items-stretch">
                         <div class="pt-logo mr-auto">
-                            <a style="width: 200px;" ></a>
+                            <a style="width: 200px;"></a>
                         </div>
                         <div class="pt-social-link mt-5">
                             <ul class="list-inline m-a0">
@@ -490,6 +511,8 @@
 <script src="{% static 'js/functions.js' %}"></script>
 <script src="{% static 'js/contact.js' %}"></script>
 <script src="{% static 'vendors/switcher/switcher.js' %}"></script>
+
+
 </body>
 
 </html>

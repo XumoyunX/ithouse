@@ -12,7 +12,7 @@ class Modul_ModelForm(forms.ModelForm):
 class MentorForm(forms.ModelForm):
     class Meta:
         model = Mentor()
-        fields = '__all__'
+        fields = ['img', 'text', 'direction', 'last_name']
 
 class CourseForm(forms.ModelForm):
 	class Meta:

@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from main.models import Mentor, New, Course, Users, Open_Class, Video, Projects, Questions, Modul_Model
 from .forms import MentorForm, NewForm, CourseForm, UsersForm, Open_ClassForm, VideoForm, ProjectsForm, QuestionsForm, Modul_ModelForm
+from django import template
+
+register = template.Library()
 
 def login_required_decorator(f):
     return login_required(f, login_url="client:login")

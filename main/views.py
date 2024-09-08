@@ -141,3 +141,15 @@ def login_course(request):
 
 
 
+
+def login_course_now(request, id):
+    now = Course.objects.get(id=id)
+
+    ctx = {
+        "now": now,
+    }
+    # for i in now.values():
+    #     print(i)
+    print(ctx.keys())
+    return render(request, 'main/login.html', ctx)
+

@@ -1,9 +1,11 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
+{#{% load ckeditor %}#}
+{#{% load my_templatetag %}#}
 
 
-	
-	
+
+
 
 {% block content %}
 
@@ -15,7 +17,7 @@
                 <li><a href="#"><i class="fa fa-home"></i>Asosiy</a></li>
                 <li>Ustozlar qo'shish</li>
             </ul>
-        </div>	
+        </div>
         <div class="row">
             <!-- Your Profile Views Chart -->
             <div class="col-lg-12 m-b30">
@@ -26,6 +28,8 @@
                     <div class="widget-inner">
                         <form method="post"  enctype="multipart/form-data" class="edit-profile m-b30">
                             {% csrf_token %}
+
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="ml-auto">
@@ -38,7 +42,7 @@
                                         {{ form.last_name }}
                                         {% comment %} <input class="form-control" type="text" value=""> {% endcomment %}
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -52,9 +56,9 @@
                                         {{ form.direction }}
                                         {% comment %} <input class="form-control" type="text" value=""> {% endcomment %}
                                     </div>
-                            
+
                                 </div>
-                                
+
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -68,9 +72,9 @@
                                         {{ form.text }}
                                         {% comment %} <input class="form-control" type="text" value=""> {% endcomment %}
                                     </div>
-                            
+
                                 </div>
-                                
+
                             </div>
 
                             <div class="row">
@@ -85,20 +89,20 @@
                                         {{ form.img }}
                                         {% comment %} <input class="form-control" type="text" value=""> {% endcomment %}
                                     </div>
-                            
+
                                 </div>
                             </div>
-                                
-                               
-                               
-                               
-                                
-                                
-                                
+
+
+
+
+
+
+
                                 <div class="col-12">
                                     <button type="submit" class="btn"><i class="fa fa-fw fa-plus-circle"></i>Saqlash</button>
                                 </div>
-                            </div>
+
                         </form>
                     </div>
                 </div>

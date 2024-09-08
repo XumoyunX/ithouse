@@ -1,12 +1,15 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 import os
+
+
 
 
 class Mentor(models.Model):
     img = models.ImageField(upload_to="images/")
     last_name = models.CharField(max_length=50)
     direction = models.CharField(max_length=50)
-    text = models.TextField()
+    text = RichTextField()
     
     def __str__(self):
         return self.last_name
