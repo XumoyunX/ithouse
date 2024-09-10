@@ -55,15 +55,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/settings.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/navigation.css' %}">
 
-    <style>
-        {#@media screen and (max-width: 1200px){#}
-        {#    .item-sm {#}
-        {#        flex-direction: column;#}
-        {#    }#}
-        {##}
-        {
-        #}#}
-    </style>
+    {#    <style>#}
+    {#@media screen and (max-width: 1200px){#}
+    {#    .item-sm {#}
+    {#        flex-direction: column;#}
+    {#    }#}
+    {##}
+
+    {#        #}
+    {#    </style>#}
 </head>
 <body id="bg">
 <div class="page-wraper">
@@ -338,30 +338,54 @@
             </div>
             <div class="recent-news-carousel item-sm" style="display: flex; flex-wrap: wrap">
                 {% for i in video %}
-                    <div class="item" style="padding: 40px 20px">
-                        <div class="recent-news">
+                    {% if i.account_type == "0" %}
+                        <div class="item" style="padding: 40px 20px">
+                            <div class="recent-news">
 
-                            <div class="action-box">
+                                <div class="action-box">
 
-                                <iframe width="320" height="240" src="{{ i.url }}"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe width="320" height="240" src="{{ i.url }}"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-                            </div>
-                            <div class="info-bx">
+                                </div>
+                                <div class="info-bx">
 
-                                <h5 class="post-title">
-                                    {{ i.name }}
-                                </h5>
-                                <p>{{ i.text }}</p>
-                                <div class="post-extra">
-                                    <!-- <a href="#" class="btn-link">READ MORE</a>
-                                    <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a> -->
+                                    <h5 class="post-title">
+                                        {{ i.name }}
+                                    </h5>
+                                    <p>{{ i.text }}</p>
+                                    <div class="post-extra">
+                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% elif i.account_type == "1" %}
+                        <div class="item" style="padding: 40px 20px">
+                            <div class="recent-news">
+
+                                <div class="action-box">
+
+                                    <video width="320" height="240" controls>
+                                        <source src="{{ i.video.url }}" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="info-bx">
+
+                                    <h5 class="post-title">
+                                        {{ i.name }}
+                                    </h5>
+                                    <p>{{ i.text }}</p>
+                                    <div class="post-extra">
+                                        <!-- <a href="#" class="btn-link">READ MORE</a>
+                                        <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
 
             </div>

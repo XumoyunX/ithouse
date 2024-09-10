@@ -127,8 +127,18 @@ def course_details(request, id):
 
 def teacher_course(request, id):
     course = Course.objects.filter(mentor_id=id).first()
+    questions = Questions.objects.filter(course__mentor_id=id).all()
+    modul_model = Modul_Model.objects.filter(course__mentor_id=id).all()
+    video = Video.objects.filter(course__mentor_id=id).all()
+
+
     ctx = {
         "course": course,
+        "video": video,
+        'questions': questions,
+        'modul_model': modul_model,
+
+
     }
     return render(request, 'main/courses-details.html', ctx)
 
