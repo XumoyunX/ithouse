@@ -37,7 +37,7 @@
 
     <!-- All PLUGINS CSS ============================================= -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/assets.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/xumoyun.css' %}">
     <!-- TYPOGRAPHY ============================================= -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/typography.css' %}">
 
@@ -180,16 +180,16 @@
                             data-param9="" data-param10=""
                             data-description="Science says that Women are generally happier">
                             <!-- MAIN IMAGE -->
-{#                            <video autoplay muted loop width="100%" controls>#}
-{#                                <source src="{% static 'images/video.mp4' %}" type="video/mp4">#}
-{#                            </video>#}
-                                                        <img src="{% static '/images/about/pic1.jpg' %}" alt=""
-                            data-bgposition="center center"
-                            data-bgfit="cover"
-                            data-bgrepeat="no-repeat"
-                            data-bgparallax="10"
-                            class="rev-slidebg"
-                            data-no-retina/>
+                            {#                            <video autoplay muted loop width="100%" controls>#}
+                            {#                                <source src="{% static 'images/video.mp4' %}" type="video/mp4">#}
+                            {#                            </video>#}
+                            <img src="{% static '/images/about/pic1.jpg' %}" alt=""
+                                 data-bgposition="center center"
+                                 data-bgfit="cover"
+                                 data-bgrepeat="no-repeat"
+                                 data-bgparallax="10"
+                                 class="rev-slidebg"
+                                 data-no-retina/>
 
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption tp-shape tp-shapewrapper "
@@ -689,7 +689,7 @@
                                         <div class="action-box">
                                             <img src="{{ i.file.url }}" alt="">
                                         </div>
-                                        {% elif i.is_video %}
+                                    {% elif i.is_video %}
                                         <video controls width="320" height="240">
                                             <source src="{{ i.file.url }}" type="video/{{ i.ext }}">
                                             Sizning brauzeringiz video o'ynashni qo'llab-quvvatlamaydi.
@@ -769,13 +769,41 @@
                 </div>
             </div>
 
-        
+
             <!-- Recent News End -->
 
         </div>
         <!-- contact area END -->
     </div>
     <!-- Content END-->
+
+
+    <div class="chat-main">
+        <div class="chat-box" is-open="false" id="chat-box">
+            <div class="head">
+                <span>IT HOUSE</span>
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg
+                        onclick="isOpen()"
+                        xmlns="http://www.w3.org/2000/svg"
+                        id="Bold"
+                        viewBox="0 0 24 24"
+                        width="30"
+                        height="30">
+                    <path
+                            d="M14.121,12,18,8.117A1.5,1.5,0,0,0,15.883,6L12,9.879,8.11,5.988A1.5,1.5,0,1,0,5.988,8.11L9.879,12,6,15.882A1.5,1.5,0,1,0,8.118,18L12,14.121,15.878,18A1.5,1.5,0,0,0,18,15.878Z"
+                    />
+                </svg>
+            </div>
+            <div class="body" id="chat">
+                <div class="in-text" text-type="in"><p>Assalomu alaykum IT House ga hush kelibsiz</p></div>
+            </div>
+            <div class="message">
+                <textarea id="message" placeholder="Message..."></textarea>
+            </div>
+        </div>
+        <div class="chat-icon" onclick="isOpen()"></div>
+    </div>
     <!-- Footer ==== -->
     <footer>
         <div class="footer-top" style="background-image: url('{% static 'images/i.png' %}');">
@@ -1018,6 +1046,50 @@
             });
         }
     });
+
+
+    const form = `<div class="in-text form" text-type="in">
+            <p>Iltimos formani tuldiring</p>
+            <span class="line"></span>
+            <form
+              action="ithouseedu.uz/api/v2/contact"
+              class="form"
+              method="post"
+            >
+              <input id="firstName" placeholder="Ism" />
+              <input id="lastName" placeholder="Familiya" />
+              <input id="phoneNumber" placeholder="Telefon raqam" />
+              <input type="#" value="Yuborish" />
+            </form>
+          </div>`;
+
+    function isOpen() {
+        const chatBox = document.getElementById("chat-box");
+        console.log(chatBox.getAttribute("is-open"));
+        chatBox.setAttribute(
+            "is-open",
+            chatBox.getAttribute("is-open") === "true" ? "false" : "true"
+        );
+    }
+
+    document
+        .getElementById("message")
+        .addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const text = event.target.value;
+                if (text === "") return;
+                event.target.value = "";
+                let chat = document.getElementById("chat");
+                chat.innerHTML +=
+                    '<div class="out-text" text-type="out"><p>' + text + "</p></div>";
+                if (chat.getElementsByTagName("div").length === 2)
+                    chat.innerHTML += form;
+                chat.scrollTop = chat.scrollHeight;
+            }
+        });
+
+
 </script>
 </body>
 

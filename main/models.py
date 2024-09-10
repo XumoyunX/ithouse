@@ -151,7 +151,7 @@ class Projects(models.Model):
 
 class Video(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    video = models.FileField(upload_to='videos_uploaded/')
+    url = models.CharField(max_length=250)
     name = models.CharField(max_length=50)
     
     

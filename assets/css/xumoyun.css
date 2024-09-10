@@ -1,0 +1,267 @@
+/* body {
+    background-image: url('https://www.bmw.ru/content/dam/bmw/marketRU/bmw_ru/all-models/m-series/m5-sedan/2020/equipment/bmw-5-series-sedan-m-models-equipment-sd-individual-03.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-main {
+    position: fixed;
+    top: 24vh;
+    /* top: 0; */
+    left: 65vw;
+    width: 400px;
+    height: 500px;
+    z-index: 5;
+}
+
+.chat-box {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(98, 212, 28);
+    border-radius: 10px;
+    background-image: url('https://w0.peakpx.com/wallpaper/154/372/HD-wallpaper-telegram-background-whatsapp-creative-android-pattern-texture-abstract.jpg');
+}
+
+[is-open="true"] {
+    animation: openChat 0.3s ease-in-out;
+}
+
+[is-open="false"] {
+    animation: closeChat 0.3s ease-in-out both;
+}
+
+[is-open="false"] span {
+    display: none;
+}
+@keyframes openChat {
+    from {
+        left: 100%;
+        top: 100%;
+        width: 0;
+        height: 0;
+    }
+
+    to {
+        left: 0;
+        top: 0;
+        width: 400px;
+        height: 500px;
+    }
+}
+
+@keyframes closeChat {
+    from {
+        top: 0;
+        left: 0;
+        width: 400px;
+        height: 500px;
+    }
+
+    to {
+        left: 100%;
+        top: 100%;
+        width: 0;
+        height: 0;
+    }
+}
+
+.head {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+    background-color: rgb(249, 56, 56);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: white;
+}
+
+.head svg {
+    cursor: pointer;
+    fill: white;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 78%;
+    overflow-y: auto;
+}
+
+.body .out-text, .in-text {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.out-text p, .in-text p {
+    background-color: rgb(99, 170, 196);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.out-text p {
+    border-bottom-right-radius: 0;
+}
+
+.in-text, .out-text{
+    margin: 6px 0;
+}
+
+.in-text p {
+    border-bottom-left-radius: 0;
+    background-color: white;
+    color: black;
+    margin: 0 15px;
+}
+
+.in-text {
+    align-items: center;
+
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(174, 168, 168);
+}
+
+.form {
+    margin: 15px 15px;
+    width: 85%;
+    background-color: white;
+    color: black;
+}
+
+.form p {
+    padding: 12px 0;
+    text-align: center;
+}
+
+.form input {
+    margin: 8px 0;
+    width: 100%;
+    outline: none;
+    border: 1px solid rgb(167, 164, 164);
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.form input[type="submit"] {
+    background-color: rgb(103, 94, 94);
+    color: white;
+    cursor: pointer;
+}
+
+.message {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+}
+
+.message textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    border-top: 1px solid rgb(61, 61, 207);
+    padding: 0 5px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.chat-icon {
+    background-color: rgb(103, 94, 94);
+    position: relative;
+    top: 100%;
+    left: 100%;
+    width: 55px;
+    height: 55px;
+    background-image: url("../images/icons8-chat-48 (1).png");
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: 70%;
+    border: 1.5px solid brown;
+    cursor: pointer;
+}
+
+@media (max-width: 1330px) {
+    .chat-main {
+        left: 55vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .chat-main {
+        left: 40vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-main {
+        left: 25vw;
+    }
+}
+
+@media (max-width: 620px) {
+    .chat-main {
+        left: 10vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .chat-main {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .chat-box {
+        width: 100%;
+        height: 100%;
+    }
+
+    .head {
+        height: 8%;
+    }
+
+    .body {
+        height: 82%;
+    }
+
+    .chat-icon {
+        top: 80%;
+        left: 80%;
+    }
+
+    [is-open="true"] ~ .chat-icon {
+        display: none;
+    }
+}

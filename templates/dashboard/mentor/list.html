@@ -2,90 +2,168 @@
 {% load static %}
 
 
-	
-	
+
+
 
 {% block content %}
 
 
 
+    <section class="content" style="    width: 74rem;
+    margin-left: 310px; margin-top: 50px">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+
+                            <div class="card-tools">
+                                <a href="{% url 'client:category_create' %}">
+                                    <div class="btn btn-block btn-outline-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                                        </svg>
+                                        Qoʻshish
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Rasm</th>
+                                    <th>Ism</th>
+                                    <th>Yo'nalish</th>
+                                    <th>Ustoz haqida</th>
+                                    <th>Taxrirlash</th>
+                                    <th>Oʻchrish</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in categories %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td><img style="width: 50px; height: 50px; border-radius: 50px" src="{{ i.img.url }}" alt=""></td>
+                                        <td>{{ i.last_name }}</td>
+                                        <td>{{ i.direction }}</td>
+                                        <td>{{ i.text|truncatechars:"50" }}</td>
+                                        <td><a href="{% url 'client:category_edit' pk=i.id %}">
+                                            <div class=" m-6 btn btn-block btn-outline-warning" style="color: white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-pencil-square"
+                                                     viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                </svg>
+                                                <b>Taxrirlash</b>
+                                            </div>
+                                        </a></td>
+                                        <td ><a href="{% url 'client:category_delete' pk=i.id %}">
+                                            <div class="m-6 btn btn-block btn-outline-danger " style="background-color: #e31e25; color: white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                    <path fill-rule="evenodd"
+                                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                </svg>
+                                                <b>Oʻchrish</b>
+                                            </div>
+                                        </a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
-	<!--Main container start -->
-	<main class="ttr-wrapper">
-		<div class="container-fluid">
-			<div class="db-breadcrumb">
-				<h4 class="breadcrumb-title">Ustozlar</h4>
-				<ul class="db-breadcrumb-list">
-					<li><a href="#"><i class="fa fa-home"></i>Asosiy</a></li>
-					<li>Ustozlar</li>
-				</ul>
-			</div>	
-			<div class="row">
-				<!-- Your Profile Views Chart -->
-				<div class="col-lg-12 m-b30">
-					<div class="widget-box">
-						<div class="wc-title">
-							<h4>IT house Ustozlari</h4>
-						</div>
-						<div class="widget-inner">
-							<div class="card-courses-list admin-courses">
-								
-								<div class="card-courses-full-dec">
-									<div class="card-courses-title">
-										{% comment %} <h4>{{ i.last_name }}</h4> {% endcomment %}
-									</div>
-									
-									<div class="row card-courses-dec">
-										<div class="col-md-12">
-											{% comment %} <h6 class="m-b10">{{ i.direction }}</h6> {% endcomment %}
-											{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}
-										</div>
-										<div class="col-md-12">
-											<a href="{% url 'client:category_create' %}" class="btn green radius-xl outline">Qoʻshish</a>
-										</div>
-									</div>
-									
-								</div>
-							</div>
-							{% for i in categories %}
-								<div class="card-courses-list admin-courses">
-									<div class="card-courses-media">
-										<img style="height: 150px; width: 150px;" src="{{ i.img.url }}" alt=""/>
-									</div>
-									<div class="card-courses-full-dec">
-										<div class="card-courses-title">
-											<h4>{{ i.last_name }}</h4>
-										</div>
-										
-										<div class="row card-courses-dec">
-											<div class="col-md-12">
-												<h6 class="m-b10">{{ i.direction }}</h6>
-												{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}
-											</div>
-                                            <div class="col-md-12">
-												<h6 class="m-b10">{{ i.text }}</h6>
-												{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}
-											</div>
-											<div class="col-md-12">
-												<a href="{% url 'client:category_edit' i.pk %}" class="btn green radius-xl outline">Taxrirlash</a>
-												<a href="{% url 'client:category_delete'  i.id %}" class="btn red outline radius-xl ">O'chirish</a>
-											</div>
-										</div>
-										
-									</div>
-								</div>
-							{% endfor %}
-							
-						</div>
-					</div>
-				</div>
-				<!-- Your Profile Views Chart END-->
-			</div>
-		</div>
-	</main>
-	<div class="ttr-overlay"></div>
+    <!--Main container start -->
+    {#	<main class="ttr-wrapper">#}
+    {#		<div class="container-fluid">#}
+    {#			<div class="db-breadcrumb">#}
+    {#				<h4 class="breadcrumb-title">Ustozlar</h4>#}
+    {#				<ul class="db-breadcrumb-list">#}
+    {#					<li><a href="#"><i class="fa fa-home"></i>Asosiy</a></li>#}
+    {#					<li>Ustozlar</li>#}
+    {#				</ul>#}
+    {#			</div>	#}
+    {#			<div class="row">#}
+    {#				<!-- Your Profile Views Chart -->#}
+    {#				<div class="col-lg-12 m-b30">#}
+    {#					<div class="widget-box">#}
+    {#						<div class="wc-title">#}
+    {#							<h4>IT house Ustozlari</h4>#}
+    {#						</div>#}
+    {#						<div class="widget-inner">#}
+    {#							<div class="card-courses-list admin-courses">#}
+    {#								#}
+    {#								<div class="card-courses-full-dec">#}
+    {#									<div class="card-courses-title">#}
+    {#										{% comment %} <h4>{{ i.last_name }}</h4> {% endcomment %}#}
+    {#									</div>#}
+    {#									#}
+    {#									<div class="row card-courses-dec">#}
+    {#										<div class="col-md-12">#}
+    {#											{% comment %} <h6 class="m-b10">{{ i.direction }}</h6> {% endcomment %}#}
+    {#											{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}#}
+    {#										</div>#}
+    {#										<div class="col-md-12">#}
+    {#											<a href="{% url 'client:category_create' %}" class="btn green radius-xl outline">Qoʻshish</a>#}
+    {#										</div>#}
+    {#									</div>#}
+    {#									#}
+    {#								</div>#}
+    {#							</div>#}
+    {#							{% for i in categories %}#}
+    {#								<div class="card-courses-list admin-courses">#}
+    {#									<div class="card-courses-media">#}
+    {#										<img style="height: 150px; width: 150px;" src="{{ i.img.url }}" alt=""/>#}
+    {#									</div>#}
+    {#									<div class="card-courses-full-dec">#}
+    {#										<div class="card-courses-title">#}
+    {#											<h4>{{ i.last_name }}</h4>#}
+    {#										</div>#}
+    {#										#}
+    {#										<div class="row card-courses-dec">#}
+    {#											<div class="col-md-12">#}
+    {#												<h6 class="m-b10">{{ i.direction }}</h6>#}
+    {#												{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}#}
+    {#											</div>#}
+    {#                                            <div class="col-md-12">#}
+    {#												<h6 class="m-b10">{{ i.text }}</h6>#}
+    {#												{% comment %} <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	 {% endcomment %}#}
+    {#											</div>#}
+    {#											<div class="col-md-12">#}
+    {#												<a href="{% url 'client:category_edit' i.pk %}" class="btn green radius-xl outline">Taxrirlash</a>#}
+    {#												<a href="{% url 'client:category_delete'  i.id %}" class="btn red outline radius-xl ">O'chirish</a>#}
+    {#											</div>#}
+    {#										</div>#}
+    {#										#}
+    {#									</div>#}
+    {#								</div>#}
+    {#							{% endfor %}#}
+    {#							#}
+    {#						</div>#}
+    {#					</div>#}
+    {#				</div>#}
+    {#				<!-- Your Profile Views Chart END-->#}
+    {#			</div>#}
+    {#		</div>#}
+    {#	</main>#}
+    {#	<div class="ttr-overlay"></div>#}
 
 
 {% endblock %}

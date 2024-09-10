@@ -56,12 +56,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vendors/revolution/css/navigation.css' %}">
 
     <style>
-            {#@media screen and (max-width: 1200px){#}
-            {#    .item-sm {#}
-            {#        flex-direction: column;#}
-            {#    }#}
-            {##}
-            {#}#}
+        {#@media screen and (max-width: 1200px){#}
+        {#    .item-sm {#}
+        {#        flex-direction: column;#}
+        {#    }#}
+        {##}
+        {
+        #}#}
     </style>
 </head>
 <body id="bg">
@@ -186,7 +187,8 @@
 									<h4 class="price">$120</h4>
 								</div>	 {% endcomment %}
                                 <div class="course-buy-now text-center">
-                                    <a href="{% url 'main:login_course_now' course.id %}" class="btn radius-xl text-uppercase">Kursga
+                                    <a href="{% url 'main:login_course_now' course.id %}"
+                                       class="btn radius-xl text-uppercase">Kursga
                                         yozilish</a>
                                 </div>
                                 <div class="teacher-bx">
@@ -336,20 +338,21 @@
             </div>
             <div class="recent-news-carousel item-sm" style="display: flex; flex-wrap: wrap">
                 {% for i in video %}
-                    <div class="item" style="padding: 40px 20px"  >
+                    <div class="item" style="padding: 40px 20px">
                         <div class="recent-news">
 
-                            <div class="action-box" >
-                                <video width="320" height="240" controls>
-                                    <source src="{{ i.video.url }}" type="video/mp4">
+                            <div class="action-box">
 
-                                </video>
-                                {#                                            <img src="{{ i.img.url }}" alt="">#}
+                                <iframe width="320" height="240" src="{{ i.url }}"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
                             </div>
                             <div class="info-bx">
 
-                                <h5 class="post-title"><a
-                                        href="">{{ i.name }}</a>
+                                <h5 class="post-title">
+                                    {{ i.name }}
                                 </h5>
                                 <p>{{ i.text }}</p>
                                 <div class="post-extra">
