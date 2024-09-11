@@ -43,7 +43,7 @@
                                     <tr>
                                         <td>{{ forloop.counter }}</td>
                                         <td>{{ i.course }}</td>
-                                        {% if i.account_type == "0" %}
+                                        {% if i.account_type == 0 %}
                                             <td>
 
                                                 <iframe width="50" height="50" src="{{ i.url }}"
@@ -53,7 +53,7 @@
                                                         allowfullscreen></iframe>
 
                                             </td>
-                                        {% elif i.account_type == "1" %}
+                                        {% elif i.account_type == 1 %}
                                             <td>
 
                                                 <video width="50" height="50" controls>

@@ -338,7 +338,7 @@
             </div>
             <div class="recent-news-carousel item-sm" style="display: flex; flex-wrap: wrap">
                 {% for i in video %}
-                    {% if i.account_type == "0" %}
+                    {% if i.account_type == 0 %}
                         <div class="item" style="padding: 40px 20px">
                             <div class="recent-news">
 
@@ -361,7 +361,7 @@
                                 </div>
                             </div>
                         </div>
-                    {% elif i.account_type == "1" %}
+                    {% elif i.account_type == 1 %}
                         <div class="item" style="padding: 40px 20px">
                             <div class="recent-news">
 

@@ -151,24 +151,20 @@ class Projects(models.Model):
 
 class Video(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    ELEMENTARY = "0"
-    ADDITIONAL = "1"
+    ONLINE = 0
+    OFFINE = 1
 
-    ACCOUNT_TYPE_CHOICES = {
-        ELEMENTARY: "YouTube",
-        ADDITIONAL: "Video_add",
-
-    }
     video = models.FileField(upload_to='video', null=True, blank=True)
     url = models.CharField(max_length=150, null=True, blank=True)
     name = models.CharField(max_length=250)
 
-    account_type = models.CharField(
-        max_length=1,
-        choices=ACCOUNT_TYPE_CHOICES,
-        default=ELEMENTARY,
-    )
 
+
+    account_type = models.SmallIntegerField(choices=(
+        (ONLINE, "YouTube"),
+        (OFFINE, "Video_add")
+
+    ), blank=True, null=True)
     def __str__(self):
         return self.account_type
     
@@ -188,6 +184,7 @@ class About(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
 

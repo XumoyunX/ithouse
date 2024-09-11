@@ -440,7 +440,7 @@
                                     <div class="cours-bx">
                                         <div class="action-box">
                                             <img style="height: 100%;" src="{{ i.img.url }}" alt="">
-                                            <a href="{% url 'main:login_course' %}" class="btn">Ro'yxatdan o'tish</a>
+                                            <a href="{% url 'main:login_course_now' i.id %}" class="btn">Ro'yxatdan o'tish</a>
                                         </div>
                                         <div class="info-bx text-center">
                                             <h5>
@@ -778,32 +778,7 @@
     <!-- Content END-->
 
 
-    <div class="chat-main">
-        <div class="chat-box" is-open="false" id="chat-box">
-            <div class="head">
-                <span>IT HOUSE</span>
-                <?xml version="1.0" encoding="UTF-8"?>
-                <svg
-                        onclick="isOpen()"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="Bold"
-                        viewBox="0 0 24 24"
-                        width="30"
-                        height="30">
-                    <path
-                            d="M14.121,12,18,8.117A1.5,1.5,0,0,0,15.883,6L12,9.879,8.11,5.988A1.5,1.5,0,1,0,5.988,8.11L9.879,12,6,15.882A1.5,1.5,0,1,0,8.118,18L12,14.121,15.878,18A1.5,1.5,0,0,0,18,15.878Z"
-                    />
-                </svg>
-            </div>
-            <div class="body" id="chat">
-                <div class="in-text" text-type="in"><p>Assalomu alaykum IT House ga hush kelibsiz</p></div>
-            </div>
-            <div class="message">
-                <textarea id="message" placeholder="Message..."></textarea>
-            </div>
-        </div>
-        <div class="chat-icon" onclick="isOpen()"></div>
-    </div>
+   
     <!-- Footer ==== -->
     <footer>
         <div class="footer-top" style="background-image: url('{% static 'images/i.png' %}');">
@@ -1048,20 +1023,7 @@
     });
 
 
-    const form = `<div class="in-text form" text-type="in">
-            <p>Iltimos formani tuldiring</p>
-            <span class="line"></span>
-            <form
-              action="ithouseedu.uz/api/v2/contact"
-              class="form"
-              method="post"
-            >
-              <input id="firstName" placeholder="Ism" />
-              <input id="lastName" placeholder="Familiya" />
-              <input id="phoneNumber" placeholder="Telefon raqam" />
-              <input type="#" value="Yuborish" />
-            </form>
-          </div>`;
+    
 
     function isOpen() {
         const chatBox = document.getElementById("chat-box");
