@@ -187,7 +187,8 @@ class About(models.Model):
 
 
 
-
+class Uka(models.Model):
+    name = models.CharField(max_length=250)
 
 
 
